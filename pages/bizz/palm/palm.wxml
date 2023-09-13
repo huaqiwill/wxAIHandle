@@ -1,0 +1,146 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">AI手相分析</view>
+</cu-custom>
+<view class="page-body">
+  <view class="page-body-wrapper">
+    <image src="{{ img }}" bindtap='preview' style="width:100%;height:400rpx;" id="imageDom" mode='aspectFit'/>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="uploads">拍照/选取图片</button>
+    <!--从聊天中选择-->
+    <view class="text-center text-grey text-lg" style="text-decoration:underline;" bindtap="chooseMessage">
+      <view>从聊天中选择</view>
+    </view>
+  </view>
+</view>
+<!--手相评分-->
+<block wx:if="{{score}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>{{score.title}} {{score.score}} {{score.level}}
+  </view>
+</view>
+</block>
+<!--手相纹理评分-->
+<block wx:if="{{ping_fen}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>手指&掌纹评分
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="cu-tag round bg-green">感情:{{ping_fen.aL_Score}}</view>
+    <view class="cu-tag round bg-mauve">事业:{{ping_fen.bL_Score}}</view>
+    <view class="cu-tag round bg-orange">生命:{{ping_fen.lL_Score}}</view>
+    <view class="cu-tag round bg-red">智慧:{{ping_fen.wL_Score}}</view>
+    <view class="cu-tag round bg-cyan">手指:{{ping_fen.fingerScore}}</view>
+  </view>
+</view>
+</block>
+<!--手相标签分析-->
+<block wx:if="{{tag}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>手相标签分析
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="cu-tag round bg-green">感情:{{tag.dec.ganQing.tag}}</view>
+    <view class="cu-tag round bg-cyan">婚姻:{{tag.dec.hunYin.tag}}</view>
+    <view class="cu-tag round bg-orange">生命:{{tag.dec.shengMing.tag}}</view>
+    <view class="cu-tag round bg-mauve">事业:{{tag.dec.shiYe.tag}}</view>
+    <view class="cu-tag round bg-purple">掌纹:{{tag.dec.zhangWen.tag}}</view>
+    <view class="cu-tag round bg-red">智慧:{{tag.dec.zhiHui.tag}}</view>
+  </view>
+</view>
+</block>
+<!--指相分析-->
+<block wx:if="{{zhi_xiang}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>指相分析
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <block wx:for="{{zhi_xiang.dec}}" wx:key="{{index}}">
+    <block wx:if="{{item.name=='shi_zhi'}}">
+    <view class="padding-xs solid-bottom">
+    <view class="cu-tag round bg-red">食指:{{item.title}}</view>
+    <view class="text-df" style="word-break:break-all;display:block;white-space:pre-wrap;">{{item.dec[0]}}</view>
+    </view>
+    </block>
+    <block wx:if="{{item.name=='zhong_zhi'}}">
+    <view class="padding-xs solid-bottom">
+    <view class="cu-tag round bg-cyan">中指:{{item.title}}</view>
+    <view class="text-df" style="word-break:break-all;display:block;white-space:pre-wrap;">{{item.dec[0]}}</view>
+    </view>
+    </block>
+
+    <block wx:if="{{item.name=='wu_ming_zhi'}}">
+    <view class="padding-xs solid-bottom">
+    <view class="cu-tag round bg-mauve">无名指:{{item.title}}</view>
+    <view class="text-df" style="word-break:break-all;display:block;white-space:pre-wrap;">{{item.dec[0]}}</view>
+    </view>
+    </block>
+
+    <block wx:if="{{item.name=='xiao_zhi'}}">
+    <view class="padding-xs solid-bottom">
+    <view class="cu-tag round bg-orange">小指:{{item.title}}</view>
+    <view class="text-df" style="word-break:break-all;display:block;white-space:pre-wrap;">{{item.dec[0]}}</view>
+    </view>
+    </block>
+  </block>
+</view>
+</block>
+<!--手相分析-->
+<block wx:if="{{shou_xiang}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>手相分析 {{shou_xiang.tag}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="text-df" style="word-break:break-all;display:block;white-space:pre-wrap;">{{shou_xiang.dec[0]}}</view>
+    <view class="text-df" style="word-break:break-all;display:block;white-space:pre-wrap;">{{shou_xiang.intro}}</view>
+  </view>
+</view>
+</block>
+<!--掌纹分析-->
+<block wx:if="{{zhang_wen}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>掌纹分析
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+  <block wx:for="{{zhang_wen.dec}}" wx:key="{{index}}">
+    <block wx:if="{{item.name=='gan_qing'}}"><view class="cu-tag round bg-green">感情:{{item.title}}</view></block>
+    <block wx:if="{{item.name=='zhi_hui'}}"><view class="cu-tag round bg-red">智慧:{{item.title}}</view></block>
+    <block wx:if="{{item.name=='shi_ye'}}"><view class="cu-tag round bg-mauve">事业:{{item.title}}</view></block>
+    <block wx:if="{{item.name=='sheng_ming'}}"><view class="cu-tag round bg-orange">生命:{{item.title}}</view></block>
+  </block>
+  </view>
+</view>
+</block>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.点击图片可放大查看</view>
+    <view class='reminder-content'>2.分析时间较长请耐心等待</view>
+    <view class='reminder-content'>3.服务不稳定，可能存在分析失败</view>
+    <view class='reminder-content'>4.图中绿色为：感情线。红色为：智慧线。橘色为：生命线</view>
+    <view class='reminder-content'>5.图片尽量符合正面、纯色背景、手指并拢、手掌完整、无遮挡、不戴首饰</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

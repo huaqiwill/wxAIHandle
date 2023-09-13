@@ -1,0 +1,30 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">任务详情</view>
+</cu-custom>
+<view class="page-body">
+    <view class="page-body-wrapper">
+      <video 
+        src="{{videoUrl}}"
+        controls
+         binderror="videoErrorCallback"></video>
+    </view>
+    <view class="padding flex flex-direction">
+        <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="copyVideoUrl">复制链接</button>
+    </view>
+</view>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.兼容性不是很好</view>
+    <view class='reminder-content'>2.复制链接可以去电脑或手机自带浏览器打开查看</view>
+    <view class='reminder-content'>3.每个用户最多5次体验机会(只要生成任务均算次数)</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

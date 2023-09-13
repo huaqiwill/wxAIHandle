@@ -1,0 +1,169 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">面相(五官)分析</view>
+</cu-custom>
+<view class="page-body">
+    <view class="page-body-wrapper">
+        <image src="{{ img }}" bindtap='preview' style="width:100%;height:500rpx;" id="imageDom"/>
+    </view>
+    <view class="padding flex flex-direction">
+        <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="uploads">拍照/选取图片</button>
+        <!--从聊天中选择-->
+        <view class="text-center text-grey text-lg" style="text-decoration:underline;" bindtap="chooseMessage">
+            <view>从聊天中选择</view>
+        </view>
+    </view>
+<!--面相评分-->
+<block wx:if="{{face}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>{{face.name}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{face.desc}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{face.desc}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--眉毛-->
+<block wx:if="{{eyebrow}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>眉毛:{{eyebrow.name}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+  <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{eyebrow.desc}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{eyebrow.desc}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--眼睛-->
+<block wx:if="{{eye}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>眼睛:{{eye.name}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+   <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{eye.desc}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{eye.desc}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--鼻子-->
+<block wx:if="{{lips}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>鼻子:{{nose.name}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+   <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{nose.desc}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{nose.desc}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--嘴巴-->
+<block wx:if="{{lips}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>嘴巴:{{lips.name}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+   <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{lips.desc}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{lips.desc}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--脸型-->
+<block wx:if="{{face_shape}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>脸型:{{face_shape.name}}
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+   <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{face_shape.desc}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{face_shape.desc}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--今日运势-->
+<block wx:if="{{fortune}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>今日运势
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+     <view class="cu-tag text-bold text-lg" wx:if="{{fortune.donot}}" style="background-color:#e54d42;color:#fff">忌:{{fortune.donot}}</view>
+    <view class="cu-tag text-bold text-lg" wx:if="{{fortune.doX}}" style="background-color:#8dc63f;color:#fff">宜:{{fortune.doX}}</view></view>
+  </view>
+  <view class="padding-xs bg-white">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{fortune.desc}}</view>
+    <!-- <textarea  maxlength="-1"  disabled="true" value="{{fortune.desc}}"></textarea> -->
+</view>
+</block>
+<!--今日赠言-->
+<block wx:if="{{faceMessage}}">
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-doraemon-blue"></text>今日赠言
+  </view>
+  <view class="action">
+    <text class="text-doraemon-blue">作者:{{faceMessage.author}}</text>
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+  <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{faceMessage.quote}}</view>
+   <!-- <textarea maxlength="-1"  disabled="true" value="{{faceMessage.quote}}"></textarea> -->
+  </view>
+</view>
+</block>
+<!--幸运植物-->
+<block wx:if="{{faceFortune}}">
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-doraemon-blue"></text>幸运植物
+    </view>
+  </view>
+<view class="cu-list grid col-3 no-border">
+   <block wx:for="{{faceFortune.plantsList}}" wx:key='index'>
+    <view class="cu-item" bindtap="detail">
+     <navigator  hover-class="other-navigator-hover" open-type="navigate">
+      <view>
+      <image src="{{item.imgUrl}}" class="productImg" mode="aspectFill"></image>
+      </view>
+      </navigator>
+      <text>{{item.name}}</text>
+    </view>
+    </block>
+  </view>
+  </block>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.识别效果仅供娱乐，不确保真实性</view>
+    <view class='reminder-content'>2.服务可能存在不稳定因素，识别失败请重试</view>
+    <view class='reminder-content'>3.服务可能存在不稳定因素，返回内容有所不同</view>
+</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

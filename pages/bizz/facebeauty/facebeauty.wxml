@@ -1,0 +1,90 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">颜值估测</view>
+</cu-custom>
+<view class="page-body">
+    <view class="page-body-wrapper">
+        <image src="{{ img }}" bindtap='preview' style="width:100%;height:400rpx;" id="imageDom" mode='aspectFit'/>
+    </view>
+    <view class="padding flex flex-direction">
+        <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="uploads">拍照/选取图片</button>
+        <!--从聊天中选择-->
+        <view class="text-center text-grey text-lg" style="text-decoration:underline;" bindtap="chooseMessage">
+            <view>从聊天中选择</view>
+        </view>
+    </view>
+</view>
+<!--查询详情-->
+<block wx:if="{{resultData}}">
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-xsblue "></text>人脸个数:{{faceNum}}
+    </view>
+  </view>
+<!--人脸列表-->
+<view class="cu-list menu-avatar">
+ <block wx:for="{{resultData}}">
+    <view class="cu-item solid-bottom">
+      <block wx:if="{{item.cut_image}}">
+        <view class="cu-avatar lg" style="background-image:url(data:image/png;base64,{{item.cut_image}});"></view>
+      </block>
+      <block wx:else>
+        <view class="cu-avatar lg" style="background-image:url(https://wximage-1251091977.cos.ap-beijing.myqcloud.com/xai/error.png);"></view>
+      </block>
+      <view class="content">
+        <view class="text-black">
+          <!--颜值-->
+          <view class="cu-tag round bg-olive">{{item.beauty}}</view>
+          <!--年龄-->
+          <view class="cu-tag round bg-purple">{{item.age}}</view>
+          <!--表情处理-->
+          <block wx:if="{{item.emotion.type=='angry'}}"><view class="cu-tag round bg-mauve">愤怒</view></block>
+          <block wx:if="{{item.emotion.type=='disgust'}}"><view class="cu-tag round bg-mauve">厌恶</view></block>
+          <block wx:if="{{item.emotion.type=='fear'}}"><view class="cu-tag round bg-mauve">恐惧</view></block>
+          <block wx:if="{{item.emotion.type=='happy'}}"><view class="cu-tag round bg-mauve">高兴</view></block>
+          <block wx:if="{{item.emotion.type=='sad'}}"><view class="cu-tag round bg-mauve">伤心</view></block>
+          <block wx:if="{{item.emotion.type=='surprise'}}"><view class="cu-tag round bg-mauve">惊讶</view></block>
+          <block wx:if="{{item.emotion.type=='neutral'}}"><view class="cu-tag round bg-mauve">无</view></block>
+          <block wx:if="{{item.emotion.type=='pouty'}}"><view class="cu-tag round bg-mauve">撅嘴</view></block>
+          <block wx:if="{{item.emotion.type=='grimace'}}"><view class="cu-tag round bg-mauve">鬼脸</view></block>
+          <!--情绪处理-->
+          <block wx:if="{{item.expression.type=='none'}}"><view class="cu-tag round bg-brown">不笑</view></block>
+          <block wx:if="{{item.expression.type=='smile'}}"><view class="cu-tag round bg-brown">微笑</view></block>
+          <block wx:if="{{item.expression.type=='laugh'}}"><view class="cu-tag round bg-brown">大笑</view></block>
+          <!--脸型处理-->
+          <block wx:if="{{item.face_shape.type=='square'}}"><view class="cu-tag round bg-yellow">方形</view></block>
+          <block wx:if="{{item.face_shape.type=='triangle'}}"><view class="cu-tag round bg-yellow">三角</view></block>
+          <block wx:if="{{item.face_shape.type=='oval'}}"><view class="cu-tag round bg-yellow">椭圆</view></block>
+          <block wx:if="{{item.face_shape.type=='heart'}}"><view class="cu-tag round bg-yellow">心形</view></block>
+          <block wx:if="{{item.face_shape.type=='round'}}"><view class="cu-tag round bg-yellow">圆形</view></block>
+          <!--眼镜处理-->
+          <block wx:if="{{item.glasses.type=='none'}}"><view class="cu-tag round bg-cyan">无</view></block>
+          <block wx:if="{{item.glasses.type=='common'}}"><view class="cu-tag round bg-cyan">普通</view></block>
+          <block wx:if="{{item.glasses.type=='sun'}}"><view class="cu-tag round bg-cyan">墨镜</view></block>
+        </view>
+      </view>
+
+      <view class="action">
+        <view class="round bg-grey cuIcon-{{item.gender.type}}"></view>
+      </view>
+    </view>
+  </block>
+  </view>
+</block>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>从左往右依次为:裁剪图、颜值、年龄、表情、情绪、脸型、是否带眼镜、性别</view>
+    <view class='reminder-content'>1.上传图片最好包含人脸</view>
+    <view class='reminder-content'>2.最多支持检测图中10个人脸</view>
+    <view class='reminder-content'>3.颜值分数仅供娱乐</view>
+    <view class='reminder-content'>4.点击图片可查看并进行保存</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

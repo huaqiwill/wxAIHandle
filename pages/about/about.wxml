@@ -1,0 +1,189 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">小帅一点资讯历程</view>
+</cu-custom>
+<!--2021年-->
+<view class="cu-timeline">
+  <view class="cu-time">2021</view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">05-17</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text class="cuIcon-add"></text>增加蚂蚁呀嘿、拟真视频功能
+    </view>
+    <view class="content bg-xsblue">
+      <text class="cuIcon-edit"></text>更新授权方法
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">04-13</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>增加秃头、生发功能
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">01-16</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>增加送你一朵小红花
+    </view>
+  </view>
+</view>
+<!--2020年-->
+<view class="cu-timeline">
+  <view class="cu-time">2020</view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">11-11</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>增加聊天机器人
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">11-09</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>增加从聊天中选择图片功能
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">11-02</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>增加穿衣搭配、颜色识别功能
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">10-29</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>手相分析功能发布
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">10-14</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>小表帝-手表识别功能发布
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">10-10</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>颜值估测功能发布
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">09-25</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text>全新UI更换，采用ColorUI
+    </view>
+  </view>
+</view>
+<!--2019年-->
+<view class="cu-timeline">
+  <view class="cu-time">2019</view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">09-20</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text> 增加面相分析
+    </view>
+  </view>
+</view>
+<!--2018年-->
+<view class="cu-timeline">
+  <view class="cu-time">2018</view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">10-11</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text> 增加肤质分析(皮肤健康一拍即知)
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">07-27</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text> 菜品、车型、植物、动物、LOGO新增百科内容显示
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">07-03</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text> 增加在线客服功能，随时与作者:【小帅丶】取得联系
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">03-21</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text> 修改UI体验，无需等待立刻返回识别结果
+    </view>
+  </view>
+</view>
+<!--2017年-->
+<view class="cu-timeline">
+  <view class="cu-time">2017</view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">10-13</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue">
+      <text  class="cuIcon-add"></text> 新增图像识别功能(动物、LOGO、菜品等)
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">05-17</view>
+  <view class="cu-item text-xsblue">
+    <view class="content bg-xsblue" bindtap="CopyLink">
+      <text></text> 小程序代码完全开源 Gitee https://gitee.com/xshuai/weixinxiaochengxu
+    </view>
+  </view>
+</view>
+<!--历程-->
+<view class="cu-timeline">
+  <view class="cu-time">03-29</view>
+  <view class="cu-item text-xsblue">
+    <view class="bg-xsblue content">
+      <text  class="cuIcon-add"></text>【小帅一点资讯】小程序第一版上线发布
+    </view>
+  </view>
+</view>

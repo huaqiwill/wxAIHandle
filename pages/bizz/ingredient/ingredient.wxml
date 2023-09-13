@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">食材识别</view>
+</cu-custom>
+<view class="page-body">
+    <view class="page-body-wrapper">
+        <image src="{{ img }}" bindtap='preview' style="width:100%;height:400rpx;" id="imageDom" mode='aspectFit'/>
+    </view>
+    <view class="padding flex flex-direction">
+        <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="uploads">拍照/选取图片</button>
+        <!--从聊天中选择-->
+        <view class="text-center text-grey text-lg" style="text-decoration:underline;" bindtap="chooseMessage">
+            <view>从聊天中选择</view>
+        </view>
+    </view>
+</view>
+<!--食疏识别结果-->
+<block wx:if="{{resultData}}">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-xsblue "></text>食材识别结果
+    </view>
+  </view>
+<!--食疏识别列表-->
+<view class="cu-list menu">
+ <block wx:for="{{resultData}}">
+    <view class="cu-item">
+      <view class="content">
+        <view class="text-black">{{item.name}}</view>
+      </view>
+      <view class="action">
+          <view class="cu-tag round bg-blue light blod">可信度{{item.score}}%</view>
+      </view>
+    </view>
+  </block>
+  </view>
+</block>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.上传图片最好包含果蔬食材</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

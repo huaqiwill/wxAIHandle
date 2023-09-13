@@ -1,0 +1,251 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">红酒识别</view>
+</cu-custom>
+<view class="page-body">
+  <view class="page-body-wrapper">
+    <image src="{{ img }}" bindtap='preview' style="width:100%;height:400rpx;" id="imageDom" mode='aspectFit'/>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="uploads">拍照/选取图片</button>
+    <!--从聊天中选择-->
+    <view class="text-center text-grey text-lg" style="text-decoration:underline;" bindtap="chooseMessage">
+      <view>从聊天中选择</view>
+    </view>
+  </view>
+</view>
+<!--红酒中文名-->
+<block wx:if="{{resultData.wineNameCn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>红酒中文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.wineNameCn}}</view>
+  </view>
+</view>
+</block>
+<!--红酒英文名-->
+<block wx:if="{{resultData.wineNameEn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>红酒英文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.wineNameEn}}</view>
+  </view>
+</view>
+</block>
+<!--国家中文名-->
+<block wx:if="{{resultData.countryCn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>国家中文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.countryCn}}</view>
+  </view>
+</view>
+</block>
+<!--国家英文名-->
+<block wx:if="{{resultData.countryEn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>国家英文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.countryEn}}</view>
+  </view>
+</view>
+</block>
+<!--产区中文名-->
+<block wx:if="{{resultData.regionCn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>产区中文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.regionCn}}</view>
+  </view>
+</view>
+</block>
+<!--产区英文名-->
+<block wx:if="{{resultData.regionEn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>产区英文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.regionEn}}</view>
+  </view>
+</view>
+</block>
+<!--子产区中文名-->
+<block wx:if="{{resultData.subRegionCn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>子产区中文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+   <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.subRegionCn}}</view>
+  </view>
+</view>
+</block>
+<!--子产区英文名-->
+<block wx:if="{{resultData}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>子产区英文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.subRegionEn}}</view>
+  </view>
+</view>
+</block>
+<!--酒庄中文名-->
+<block wx:if="{{resultData.wineryCn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>酒庄中文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.wineryCn}}</view>
+  </view>
+</view>
+</block>
+<!--酒庄英文名-->
+<block wx:if="{{resultData.wineryEn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>酒庄英文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.wineryEn}}</view>
+  </view>
+</view>
+</block>
+<!--酒类型-->
+<block wx:if="{{resultData.classifyByColor}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>酒类型
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.classifyByColor}}</view>
+  </view>
+</view>
+</block>
+<!--糖分类型-->
+<block wx:if="{{resultData.classifyBySugar}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>糖分类型
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.classifyBySugar}}</view>
+  </view>
+</view>
+</block>
+<!--色泽-->
+<block wx:if="{{resultData.color}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>色泽
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.color}}</view>
+  </view>
+</view>
+</block>
+<!--葡萄品种-->
+<block wx:if="{{resultData.grapeCn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>葡萄品种中文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.grapeCn}}</view>
+  </view>
+</view>
+</block>
+<!--葡萄品种英文名-->
+<block wx:if="{{resultData.grapeEn}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>葡萄品种英文名
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.grapeEn}}</view>
+  </view>
+</view>
+</block>
+<!--品尝温度-->
+<block wx:if="{{resultData.tasteTemperature}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>品尝温度
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+   <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.tasteTemperature}}</view>
+  </view>
+</view>
+</block>
+<!--酒品描述-->
+<block wx:if="{{resultData.description}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>酒品描述
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs">
+    <view class="text-lg" style="word-break:break-all;display:block;white-space:pre-wrap;">{{resultData.description}}</view>
+  </view>
+</view>
+</block>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.上传图片最好包含景区</view>
+    <view class='reminder-content'>2.支持识别12万中外著名地标、热门景点</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

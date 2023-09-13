@@ -1,0 +1,67 @@
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+page{
+  padding: 20rpx 0 160rpx;
+}
+.foot.cu-bar.input{
+  background: #F0F3F5;
+  height: 130rpx;
+}
+.input-box {
+  background: #fff;
+  border: 1px solid #F0F3F5;
+  padding-left: 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding:0 30rpx;
+}
+.userinfo-avatar{  
+  overflow:hidden;  
+  display: block;  
+  width: 80rpx;  
+  height: 80rpx;  
+  border-radius: 50%;  
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}  
+.cu-chat .cu-item {
+  display: flex;
+  padding: 30rpx;
+  position: relative;
+}
+.icon {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+}
+.icon-voice {
+  background: url(https://xai-1251091977.cos.ap-chengdu.myqcloud.com/chatbot/icon-voice.png) no-repeat;
+  background-size: 100% auto;
+}
+.icon-face {
+  background: url(https://xai-1251091977.cos.ap-chengdu.myqcloud.com/chatbot/icon-face.png) no-repeat;
+  background-size: 100% auto;
+}
+.share-round {
+  position: fixed;
+  right: 20rpx;
+  bottom: 150rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background: rgba(71, 28, 185, 0.6);
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon-share {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  background: url(https://xai-1251091977.cos.ap-chengdu.myqcloud.com/chatbot/icon-share.png) no-repeat;
+  background-size: 100% auto;
+  margin-bottom: 10rpx;
+}

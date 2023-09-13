@@ -1,0 +1,89 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">垃圾分类查询</view>
+</cu-custom>
+<view class="page-body">
+  <view class="page-body-wrapper">
+    <image src="{{ img }}" bindtap='preview' style="width:100%;height:400rpx;" id="imageDom" mode='aspectFit'/>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-xsblue margin-tb-sm lg" bindtap="uploads">拍照/选取图片</button>
+    <!--从聊天中选择-->
+    <view class="text-center text-grey text-lg" style="text-decoration:underline;" bindtap="chooseMessage">
+      <view>从聊天中选择</view>
+    </view>
+  </view>
+<!--查询详情-->
+<block wx:if="{{garbage}}">
+<!--垃圾名称-->
+<view class="cu-bar bg-white margin-top solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 垃圾名称
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="cu-tag" style="background-color:{{color[0]}};color:#fff">{{garbage.garbage_name}} 置信度:{{garbage.confidence}}</view>
+  </view>
+</view>
+<!--垃圾类别-->
+<view class="cu-bar bg-white margin-top solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 垃圾类别
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="cu-tag" style="background-color:{{color[1]}};color:#fff">{{garbage.cate_name}}</view>
+  </view>
+</view>
+<!--城市id-->
+<view class="cu-bar bg-white margin-top solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 国家标准城市编码
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="cu-tag" style="background-color:{{color[2]}};color:#fff">{{garbage.city_id}}</view>
+  </view>
+</view>
+<!--城市名称-->
+<view class="cu-bar margin-top solid-bottom bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 城市名称
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+    <view class="cu-tag" style="background-color:{{color[3]}};color:#fff">{{garbage.city_name}}</view>
+  </view>
+</view>
+<!--备注描述-->
+<view class="cu-bar bg-white margin-top solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text> 描述
+  </view>
+</view>
+<view class="padding-sm flex flex-wrap bg-white">
+  <view class="padding-xs">
+  	<textarea maxlength="-1"  disabled="true" value="{{garbage.ps}}"></textarea>  </view>
+</view>
+</block>
+ <!--温馨提示-->
+  <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.结果仅供参考 不提供真实性依据</view>
+    <view class='reminder-content'>2.默认以北京市进行查询</view>
+    <view class='reminder-content'>3.目前支持北京、上海、宁波、西安、深圳的垃圾分类查询。</view>
+    <view class='reminder-content'>4.默认查询北京。</view>
+</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

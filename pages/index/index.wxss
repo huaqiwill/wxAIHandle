@@ -1,0 +1,41 @@
+	.tower-swiper .tower-item {
+		transform: scale(calc(0.5 + var(--index) / 10));
+		margin-left: calc(var(--left) * 100rpx - 150rpx);
+		z-index: var(--index);
+	}
+  .weather{
+  padding-top:10rpx;
+  padding-right: 20rpx;
+  padding-bottom: 5rpx;
+  display: flex;
+  align-items: center;
+  float: right;
+  color: white;
+}
+.gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
+}
+.reason_txt{
+  font-size: 32rpx;
+  color: #aaaaaa;
+  display: table;
+  width: auto;
+  white-space: nowrap;
+  border-spacing: 0.5rem 0;
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  margin-top: 28rpx;
+}
+.reason_txt::before,.reason_txt::after{
+  display: table-cell;
+  content: "";
+  width: 50%;
+  background: linear-gradient(#aaaaaa, #aaaaaa) repeat-x center;
+  background-size: 0.1rem 0.1rem;
+}

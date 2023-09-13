@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">蚂蚁呀嘿</view>
+</cu-custom>
+<!--接口类型-->
+<scroll-view scroll-x class="bg-white nav padding-top-xs padding-bottom-xs text-df">
+  <view class="flex text-center">
+     <block wx:for="{{logType}}" wx:key>
+    <view class="cu-item flex-sub {{item.range==logTypeCur?'text-xsblue cur':''}} text-df text-bold" bindtap="tabSelect" data-range="{{item.range}}" data-id="{{item.range}}">
+      {{item.name}}
+    </view>
+    </block>
+  </view>
+</scroll-view>
+<!--列表-->
+<view class="cu-list menu-avatar xl padding-top-xs">
+ <block wx:for="{{recordList}}">
+    <view class="cu-item solid-bottom" bindtap="toDetail" data-detail="{{item}}">
+    <view class="cu-avatar lg" style="background-image:url('https://xai-1251091977.cos.ap-chengdu.myqcloud.com/icon.png');background-color:white;"></view>
+      <view class="content">
+        <view class="text-black">
+          <text class="text-cut text-df">任务ID:{{item.taskId}}</text>
+        </view>
+        <view class="text-gray text-sm">
+          <text class="text-cut text-sm" wx:if="{{item.apiType==72056}}">任务类型:蚂蚁呀嘿</text>
+          <text class="text-cut text-sm" wx:if="{{item.apiType==72057}}">任务类型:拟真视频</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-xsblue text-sm">任务状态</view>
+        <block wx:if="{{item.taskStatus=='success'}}">
+          <view class="cu-tag round bg-xsblue df">成功</view>
+        </block>
+        <block wx:if="{{item.taskStatus=='running'}}">
+          <view class="cu-tag round bg-xsblue df">生成中</view>
+        </block>
+        <block wx:if="{{item.taskStatus=='failed'}}">
+          <view class="cu-tag round bg-xsblue df">失败</view>
+        </block>
+        <block wx:if="{{item.taskStatus=='commit'}}">
+          <view class="cu-tag round bg-xsblue df">提交</view>
+        </block>
+      </view>
+    </view>
+  </block>
+        <view wx:if="{{emptyRecord}}" class="padding-top-xs nullimg">
+          <image class="nullimg image" src="../../../images/recordnull.png"></image>
+        </view>
+  </view>
+ <!--温馨提示-->
+ <view>
+    <text class='reason_txt'>温馨提示</text>
+    <view class='reminder-content'>1.点击可查看视频详情</view>
+    <view class='reminder-content'>2.查询其它状态再次返回当前状态即可刷新数据</view>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+ <navigator url='/pages/index/index' open-type="switchTab">
+ <image src="../../../images/tabbar/index_cur.png"></image>
+ </navigator >
+</view>
+<!--给一个高度让内显示完整-->
+<view class="cu-tabbar-height"></view>

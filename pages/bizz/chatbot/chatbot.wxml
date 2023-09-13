@@ -1,0 +1,43 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{title}}</view>
+</cu-custom>
+<view id="chatBox">
+<view class="cu-chat" wx:for="{{chatRecord}}" wx:key="date">
+    <!--机器人-->
+      <view class="cu-item" wx:if="{{item.type=='1'}}">
+        <view class="cu-avatar round" style="background-image:url(https://xai-1251091977.cos.ap-chengdu.myqcloud.com/chatbot/xgb.jpg);"></view>
+        <view class="main">
+          <view class="content bg-white text-black shadow">
+            <text>{{item.text}}</text>
+          </view>
+        </view>
+      </view>
+   <!--用户-->
+  <view class="cu-item self" wx:if="{{item.type=='2'}}">
+    <view class="main">
+      <view class="content bg-xsblue shadow round text-white">
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+    <view class="userinfo-avatar"><open-data type="userAvatarUrl"></open-data></view>
+  </view>
+</view>
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+  <view class="action" bindtap="undev">
+    <text class="icon icon-voice"></text>
+  </view>
+  <input class="bg-gray round input-box" model:value='{{inputValue}}' bindinput='textInput' bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="20" cursor-spacing="10"></input>
+  <view class="action" bindtap="undev">
+    <text class="icon icon-face"></text>
+  </view>
+  <button class="cu-btn bg-xsblue round shadow" bindtap="sendMsg" disabled="{{bstatus}}">发送</button>
+</view>
+<!--浮动按钮跳转主页-->
+<view class="round-click">
+    <navigator url='/pages/index/index' open-type="switchTab">
+        <image src="../../../images/tabbar/index_cur.png"></image>
+    </navigator>
+</view>
+</view>
